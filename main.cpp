@@ -13,6 +13,13 @@ person's username and a dynamic array of the different games they have
 struct GameLibrary{
     string username;
     string *gamesList;
+
+    ~GameLibrary(){
+        if (gamesList){
+            delete [] gamesList;
+            gamesList = nullptr;
+        }
+    }
 };
 
 void inputData(GameLibrary *user);
@@ -27,6 +34,15 @@ void inputData(GameLibrary *user){
         getline(cin, user->gamesList[i]);
     }
     cin.ignore();
+    cout << endl << endl;
+}
+
+void displayData(GameLibrary *user){
+    cout << "Username: " << user->username;
+    cout << "Game List: " << endl;
+    for (int i = 0; i < NUM_GAMES; i++){
+        cout << "> " << user->gamesList[i] << endl;
+    }
     cout << endl << endl;
 }
 
