@@ -1,3 +1,6 @@
+// COMSC-210 | Lab 11 | Amrutha Sriprasana
+// Made w/ VSCode
+
 #include <iostream>
 #include <string>
 
@@ -25,8 +28,7 @@ struct GameLibrary{
 void inputData(GameLibrary *user);
 void displayData(GameLibrary *user);
 
-
-// input data for each GameLibrary object, asks for username and the names of all games owned
+// input data for each GameLibrary object, asks for username and the names of all games in user's library
 void inputData(GameLibrary *user){
     cout << "Adding new user\n> Username: ";
     cin >> user->username;
@@ -35,7 +37,6 @@ void inputData(GameLibrary *user){
     for (int i = 0; i < NUM_GAMES; i++){
         cout << "> Game #" << i+1 << ": ";
         getline(cin, user->gamesList[i]);
-        // cin.ignore();
     }
     cout << endl;
 }
@@ -51,8 +52,8 @@ void displayData(GameLibrary *user){
 }
 
 /*
- main will contain a struct array that simulates a shared game library between friends/family
- has two for loops that first populates shared library, then outputs data for all members
+ main will contain a struct array that simulates a shared game library between friends/family,
+ has two for loops - first populates shared library, second outputs data for all members of shared library
 */
  int main(){
     GameLibrary *sharedLib = new GameLibrary[NUM_PEOPLE];
